@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learnify Webtech</title>
+  <meta name="description" content="Learn Webtech, Electronics and LED Repair with Learnify Webtech.">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- LOADING -->
+  <div id="loadingScreen" class="loading-screen">
+    <div class="loader"></div>
+    <h2>Learnify Webtech</h2>
+    <p>Loading...</p>
+  </div>
+
+  <!-- AUTH -->
+  <section id="authScreen" class="auth-screen hidden">
+
+    <div class="auth-card">
+
+      <div class="logo-box">
+        <div class="logo">L</div>
+        <div>
+          <h1>Learnify</h1>
+          <span>WEBTECH</span>
+        </div>
+      </div>
+
+      <h2 id="authTitle">Welcome Back</h2>
+      <p id="authSubtitle">Sign in to continue learning.</p>
+
+      <form id="authForm">
+
+        <div id="nameField" class="input-group hidden">
+          <label>Name</label>
+          <input
+            type="text"
+            id="nameInput"
+            placeholder="Enter your name"
+            autocomplete="name"
+          >
+        </div>
+
+        <div class="input-group">
+          <label>Email</label>
+          <input
+            type="email"
+            id="emailInput"
+            placeholder="Enter your email"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input
+            type="password"
+            id="passwordInput"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required
+          >
+        </div>
+
+        <button class="primary-btn" type="submit" id="authButton">
+          Sign In
+        </button>
+
+      </form>
+
+      <p id="authMessage" class="auth-message"></p>
+
+      <button class="switch-auth" id="switchAuth">
+        Don't have an account? <b>Sign Up</b>
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- MAIN APP -->
+  <div id="app" class="hidden">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+
+      <div class="brand">
+        <div class="small-logo">L</div>
+        <div>
+          <strong>Learnify</strong>
+          <span>WEBTECH</span>
+        </div>
+      </div>
+
+      <button class="profile-mini" id="profileMini">
+        <span id="miniInitial">U</span>
+      </button>
+
+    </header>
+
+
+    <!-- CONTENT -->
+    <main class="content">
+
+      <!-- HOME -->
+      <section id="homePage" class="page active">
+
+        <div class="hero">
+
+          <div class="hero-content">
+
+            <span class="badge">LEARN • BUILD • GROW</span>
+
+            <h1>
+              Learn Skills.<br>
+              Build Your Future.
+            </h1>
+
+            <p>
+              Learn Webtech, Electronics, LED Repair and practical skills
+              through structured video lessons.
+            </p>
+
+            <button class="hero-btn" onclick="showPage('coursesPage')">
+              Explore Courses
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">START LEARNING</span>
+            <h2>Latest Lessons</h2>
+          </div>
+
+          <button class="text-btn" onclick="showPage('coursesPage')">
+            View All
+          </button>
+        </div>
+
+        <div id="latestLessons" class="lesson-grid"></div>
+
+      </section>
+
+
+      <!-- COURSES -->
+      <section id="coursesPage" class="page">
+
+        <div class="page-title">
+          <span class="eyebrow">LEARNIFY LIBRARY</span>
+          <h1>Courses & Lessons</h1>
+          <p>Choose a subject and start learning.</p>
+        </div>
+
+
+        <div class="search-box">
+          <span>⌕</span>
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Search lessons..."
+          >
+        </div>
+
+
+        <div class="categories">
+
+          <button class="category active" data-category="All">
+            All
+          </button>
+
+          <button class="category" data-category="LED Repair">
+            LED Repair
+          </button>
+
+          <button class="category" data-category="Webtech">
+            Webtech
+          </button>
+
+          <button class="category" data-category="Electronics">
+            Electronics
+          </button>
+
+        </div>
+
+
+        <div id="courseLessons" class="lesson-grid"></div>
+
+      </section>
+
+
+      <!-- PROFILE -->
+      <section id="profilePage" class="page">
+
+        <div class="page-title">
+          <span class="eyebrow">ACCOUNT</span>
+          <h1>Your Profile</h1>
+        </div>
+
+        <div class="profile-card">
+
+          <div class="profile-avatar" id="profileAvatar">
+            U
+          </div>
+
+          <h2 id="profileName">User</h2>
+          <p id="profileEmail">email@example.com</p>
+
+          <div class="profile-info">
+
+            <div>
+              <span>Role</span>
+              <strong id="profileRole">Student</strong>
+            </div>
+
+            <div>
+              <span>Account</span>
+              <strong>Active</strong>
+            </div>
+
+          </div>
+
+          <button class="logout-btn" id="logoutButton">
+            Log Out
+          </button>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <!-- BOTTOM NAV -->
+    <nav class="bottom-nav">
+
+      <button class="nav-item active" data-page="homePage">
+        <span>⌂</span>
+        <small>Home</small>
+      </button>
+
+      <button class="nav-item" data-page="coursesPage">
+        <span>▣</span>
+        <small>Courses</small>
+      </button>
+
+      <button class="nav-item" data-page="profilePage">
+        <span>◉</span>
+        <small>Profile</small>
+      </button>
+
+    </nav>
+
+  </div>
+
+
+  <!-- VIDEO MODAL -->
+  <div id="videoModal" class="modal hidden">
+
+    <div class="modal-backdrop" id="closeModal"></div>
+
+    <div class="video-modal">
+
+      <button class="close-modal" id="closeVideo">
+        ×
+      </button>
+
+      <div class="video-container">
+
+        <video
+          id="lessonVideo"
+          controls
+          playsinline
+        ></video>
+
+      </div>
+
+      <div class="video-details">
+        <span id="videoCategory">Lesson</span>
+        <h2 id="videoTitle">Lesson</h2>
+        <p id="videoDescription"></p>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- TOAST -->
+  <div id="toast" class="toast"></div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
